@@ -51,6 +51,17 @@ browser.url('https://webdriver.io/')
 expect(browser).toHaveUrl('https://webdriver.io')
 ```
 
+### toHaveUrlContaining
+
+Checks if browser is on a specific page and contains the given value in URL.
+
+##### Usage
+
+```js
+browser.url('https://webdriver.io/')
+expect(browser).toHaveUrlContaining('webdriver.io')
+```
+
 ### toHaveTitle
 
 Checks if website has a specific title.
@@ -60,6 +71,17 @@ Checks if website has a specific title.
 ```js
 browser.url('https://webdriver.io/')
 expect(browser).toHaveTitle('WebdriverIO · Next-gen browser and mobile automation test framework for Node.js')
+```
+
+### toHaveTitleContaining
+
+Checks if website has a specific title that contains the given value.
+
+##### Usage
+
+```js
+browser.url('https://webdriver.io/')
+expect(browser).toHaveTitleContaining('Next-gen browser and mobile automation test framework')
 ```
 
 ## Element Matchers
@@ -227,7 +249,7 @@ Checks if an input element contains a certain value.
 
 ```js
 const myInput = $('input')
-expect(myInput).toHaveValue('us')
+expect(myInput).toHaveValueContaining('us')
 ```
 
 ### toBeClickable
@@ -291,7 +313,7 @@ expect(elem).toBeChecked()
 
 ### toHaveHref
 
-Checks if link element has a specific link target.
+Checks if link element has a specifc link target.
 
 ##### Usage
 
@@ -313,7 +335,7 @@ expect(link).toHaveLink('https://webdriver.io')
 
 ### toHaveHrefContaining
 
-Checks if link element contains a specific link target.
+Checks if link element contains a specifc link target.
 
 ##### Usage
 
@@ -365,7 +387,7 @@ Checks if element contains a specific text.
 ```js
 browser.url('https://webdriver.io/')
 const elem = $('.tagline')
-expect(elem).toHaveTextContaining('browser automation test framework')
+expect(elem).toHaveTextContaining('browser and mobile automation test framework')
 ```
 
 ### toBeDisplayedInViewport
@@ -415,3 +437,16 @@ expect(elems).toBeElementsArrayOfSize({ gte: 10 })
 // same as
 assert.ok(elems.length >= 10)
 ```
+
+## Error messages
+
+Error messages are informative out of the box and contain:
+
+- full element selector, like `$('form').$('input')`
+- actual and expected values
+- highlight the difference (texts assertions)
+
+![toHaveText](/docs/img/errors/text.png?raw=true "toHaveText")
+![toHaveClass](/docs/img/errors/class.png?raw=true "toHaveClass")
+![not.toBeVisible](/docs/img/errors/not-visible.png?raw=true "not.toBeVisible")
+
